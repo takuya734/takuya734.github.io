@@ -5,8 +5,7 @@ window.onload = function () {
     const clock_colon = document.getElementById("colon"); // コロン
     const cputemp = document.getElementById("cputemp"); // CPU温度
     const watertemp = document.getElementById("watertemp"); // 水温
-    const search_params = new URLSearchParams(window.location.search);
-    const is_kraken = search_params.get("kraken") == "1";
+    const is_kraken = window.location.search.includes("kraken=1");
 
     let cputemp_value = 0;
     let watertemp_value = 0;
@@ -50,12 +49,11 @@ window.onload = function () {
     };
 
     if (is_kraken) {
+        window.nzxt = window.nzxt || {};
+        window.nzxt.v1 = window.nzxt.v1 || {};
         window.nzxt.v1.onMonitoringDataUpdate = function (data) {
-            cputemp_value = Math.round(data.cpus[0].temperature);
-            watertemp_value = Math.round(data.kraken.liquidTemperature);
-
-            cputemp.innerText = cputemp_value;
-            watertemp.innerText = watertemp_value;
+            cputemp.innerText = data?.cpus?.[0]?.temperature?.toFixed(0) ?? "00";
+            watertemp.innerText = data?.kraken?.liquidTemperature?.toFixed(0) ?? "00";
         };
     } else {
         update_hwmonitor();
