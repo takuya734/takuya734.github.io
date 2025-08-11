@@ -19,7 +19,7 @@ body {
     position: absolute;
     left: 0;
     top: 0;
-    padding: 120px;
+    padding: 80px;
 }
 
 #clock {
@@ -31,14 +31,14 @@ body {
     font-family: "dseg7Classic";
 }
 #clock #hh, #clock #mm, #clock #colon {
-    font-size: 92px;
+    font-size: 108px;
 }
 #clock #colon {
     width: 16px;
     min-width: 16px;
 }
 #clock #ss {
-    font-size: 40px;
+    font-size: 52px;
     color: #999999;
     padding-bottom: 5px;
 }
@@ -50,8 +50,8 @@ body {
     justify-content: space-around;
 }
 .hwmonitor {
-    font-size: 24px;
-    width: 140px;
+    font-size: 32px;
+    width: 160px;
 }
 .hwmonitor label {
     display: inline-block;
@@ -71,7 +71,8 @@ body {
 }
 .hwmonitor .temp {
     font-family: "dseg7Classic";
-    font-size: 32px;
+    font-size: 48px;
+    text-align: end;
 }
 .hwmonitor .tempunit {
     padding: 0 0 0 5px;
