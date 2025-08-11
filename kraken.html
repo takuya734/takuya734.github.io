@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="./styles/kraken.css">
+        <title>Kraken画面サンプル1</title>
+    </head>
+    <body>
+        <div id="container">
+            <div id="clock">
+                <span id="hh" class="number">00</span>
+                <span id="colon" class="number">:</span>
+                <span id="mm" class="number">00</span>
+                <span id="ss" class="number">00</span>
+            </div>
+
+            <div id="hwmonitorContainer">
+                <div class="hwmonitor">
+                    <label>CPU</label>
+                    <div class="templabel">
+                        <span id="cputemp" class="temp">88</span>
+                        <span class="tempunit">℃</span>
+                    </div>
+                </div>
+                <div class="hwmonitor">
+                    <label>WATER</label>
+                    <div class="templabel">
+                        <span id="watertemp" class="temp">88</span>
+                        <span class="tempunit">℃</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./scripts/kraken.js"></script>
+    </body>
+</html>

@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: "dseg7Classic";
+    src: url("../fonts/DSEG7Classic-Regular.woff");
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    box-sizing: border-box;
+    width: 640px;
+    height: 640px;
+    background-color: #000000;
+    color: #FFFFFF;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 120px;
+}
+
+#clock {
+    position: relative;
+    top: 18%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    font-family: "dseg7Classic";
+}
+#clock #hh, #clock #mm, #clock #colon {
+    font-size: 92px;
+}
+#clock #colon {
+    width: 16px;
+    min-width: 16px;
+}
+#clock #ss {
+    font-size: 40px;
+    color: #999999;
+    padding-bottom: 5px;
+}
+
+#hwmonitorContainer {
+    position: relative;
+    top: 36%;
+    display: flex;
+    justify-content: space-around;
+}
+.hwmonitor {
+    font-size: 24px;
+    width: 140px;
+}
+.hwmonitor label {
+    display: inline-block;
+    width: 100%;
+    margin: 0 0 10px 0;
+    padding: 0;
+    border-bottom: 1px solid #FFFFFF;
+    text-align: center;
+}
+.hwmonitor .templabel {
+    display: inline-flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.hwmonitor .temp {
+    font-family: "dseg7Classic";
+    font-size: 32px;
+}
+.hwmonitor .tempunit {
+    padding: 0 0 0 5px;
+}
