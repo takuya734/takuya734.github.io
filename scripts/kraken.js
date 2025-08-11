@@ -5,6 +5,11 @@ window.onload = function () {
     const clock_colon = document.getElementById("colon"); // コロン
     const cputemp = document.getElementById("cputemp"); // CPU温度
     const watertemp = document.getElementById("watertemp"); // 水温
+    const search_params = new URLSearchParams(window.location.search);
+    const is_kraken = search_params.get("kraken") == "1";
+
+    let cputemp_value = 0;
+    let watertemp_value = 0;
 
     let display_colon_flg = true; // コロンの表示フラグ
 
@@ -38,15 +43,23 @@ window.onload = function () {
         const date = new Date();
         const msec = date.getMilliseconds();
 
-        const kari_cputemp = 20 + Math.floor(Math.random() * 80);
-        const kari_watertemp = 20 + Math.floor(Math.random() * 50);
-
-        cputemp.innerText = kari_cputemp;
-        watertemp.innerText = kari_watertemp;
+        cputemp.innerText = String(20 + Math.floor(Math.random() * 80));
+        watertemp.innerText = String(20 + Math.floor(Math.random() * 50));
 
         setTimeout(update_hwmonitor, 1000 - msec);
     };
 
+    if (is_kraken) {
+        window.nzxt.v1.onMonitoringDataUpdate = function (data) {
+            cputemp_value = Math.round(data.cpus[0].temperature);
+            watertemp_value = Math.round(data.kraken.liquidTemperature);
+
+            cputemp.innerText = cputemp_value;
+            watertemp.innerText = watertemp_value;
+        };
+    } else {
+        update_hwmonitor();
+    }
+
     update_clock();
-    update_hwmonitor();
 };
